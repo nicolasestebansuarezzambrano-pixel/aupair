@@ -17,14 +17,12 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
-
     <header class="bg-indigo-600 text-white p-8 shadow-xl">
         <div class="container mx-auto">
             <h1 class="text-4xl font-extrabold tracking-tight text-center">Au Pair English Survival Hub</h1>
             <p class="text-center text-indigo-100 mt-2">Domina los 3 verbos pilares: BE, GO & DO</p>
         </div>
     </header>
-
     <nav class="bg-white border-b sticky top-0 z-50">
         <div class="container mx-auto flex justify-center space-x-4 md:space-x-8">
             <button onclick="openTab('study')" class="nav-btn py-4 px-6 font-bold border-b-4 border-indigo-600 text-indigo-600">1. APRENDER (Gramática)</button>
@@ -32,9 +30,7 @@
             <button onclick="openTab('daily')" class="nav-btn py-4 px-6 font-bold border-b-4 border-transparent hover:text-indigo-600">3. AU PAIR DAILY (Frases)</button>
         </div>
     </nav>
-
     <main class="container mx-auto py-10 px-4 max-w-6xl">
-
         <div id="study" class="tab-content active space-y-12">
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-3xl shadow-lg border-t-8 border-blue-500 verb-card">
@@ -55,7 +51,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-white p-6 rounded-3xl shadow-lg border-t-8 border-green-500 verb-card">
                     <h2 class="text-2xl font-black text-green-600 mb-4 uppercase">Verbo TO GO</h2>
                     <p class="text-sm text-slate-500 mb-6 italic">Úsalo para traslados, salidas al parque o escuela.</p>
@@ -74,7 +69,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-white p-6 rounded-3xl shadow-lg border-t-8 border-purple-500 verb-card">
                     <h2 class="text-2xl font-black text-purple-600 mb-4 uppercase">Verbo TO DO</h2>
                     <p class="text-sm text-slate-500 mb-6 italic">Úsalo para actividades, tareas y deberes de la casa.</p>
@@ -95,17 +89,14 @@
                 </div>
             </div>
         </div>
-
         <div id="practice" class="tab-content space-y-8">
             <div class="bg-amber-50 p-6 rounded-2xl border-l-8 border-amber-400">
                 <h3 class="font-bold text-amber-800 text-xl">Instrucciones de Práctica</h3>
                 <p class="text-amber-700">Completa cada oración con la forma correcta del verbo indicado. Al terminar, la barra de progreso te indicará cuánto has avanzado.</p>
             </div>
-            
             <div id="quizContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 </div>
         </div>
-
         <div id="daily" class="tab-content">
             <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
                 <div class="bg-slate-800 p-6 text-white">
@@ -116,9 +107,7 @@
                     </div>
             </div>
         </div>
-
     </main>
-
     <script>
         // DATOS DE LOS EJERCICIOS (15 por verbo)
         const quizData = [
@@ -138,7 +127,6 @@
             {q: "It (be) a long flight yesterday.", a: "was", v: "be"},
             {q: "They (be) excited for the party tomorrow.", a: "will be", v: "be"},
             {q: "The car (be) clean now.", a: "is", v: "be"},
-            
             // TO GO (15)
             {q: "We (go) to the library yesterday.", a: "went", v: "go"},
             {q: "I always (go) to the park with them.", a: "go", v: "go"},
@@ -155,7 +143,6 @@
             {q: "Last summer, we (go) to Florida.", a: "went", v: "go"},
             {q: "She (go) to the doctor now.", a: "is going", a2: "goes", v: "go"},
             {q: "We (go) to the playground tomorrow.", a: "will go", v: "go"},
-
             // TO DO (15)
             {q: "I (do) the dishes last night.", a: "did", v: "do"},
             {q: "She (do) her homework every afternoon.", a: "does", v: "do"},
@@ -173,7 +160,6 @@
             {q: "He (do) his exercises daily.", a: "does", v: "do"},
             {q: "I (do) the beds after breakfast.", a: "will do", v: "do"}
         ];
-
         const phrases = [
             {en: "Is it okay if we go to the park?", es: "¿Está bien si vamos al parque?"},
             {en: "The kids were very well-behaved today.", es: "Los niños se portaron muy bien hoy."},
@@ -191,7 +177,6 @@
             {en: "I will go pick them up now.", es: "Iré a recogerlos ahora."},
             {en: "You did a great job today, buddy!", es: "¡Hiciste un gran trabajo hoy, amiguito!"}
         ];
-
         function openTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('border-indigo-600', 'text-indigo-600'));
@@ -199,7 +184,6 @@
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('border-indigo-600', 'text-indigo-600');
         }
-
         function renderQuiz() {
             const container = document.getElementById('quizContainer');
             container.innerHTML = quizData.map((item, i) => `
@@ -210,7 +194,6 @@
                 </div>
             `).join('');
         }
-
         function renderPhrases() {
             const container = document.getElementById('phraseContainer');
             container.innerHTML = phrases.map(p => `
@@ -220,7 +203,6 @@
                 </div>
             `).join('');
         }
-
         function check(input, answer) {
             if(input.value.toLowerCase().trim() === answer.toLowerCase()) {
                 input.className = "w-full p-2 border rounded-lg text-sm correct";
@@ -229,11 +211,11 @@
                 input.value = answer;
             }
         }
-
         // Init
         renderQuiz();
         renderPhrases();
     </script>
 </body>
 </html>
+
 
